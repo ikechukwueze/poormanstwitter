@@ -1,0 +1,11 @@
+
+
+#sort-dropdown li i {
+    color: black;
+}
+
+#sort-dropdown li i:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
