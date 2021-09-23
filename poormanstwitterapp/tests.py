@@ -15,15 +15,20 @@ class HomePageTest(SimpleTestCase):
         self.assertTemplateUsed(resp, 'poormanstwitterapp/index.html')
 
 
-class TweetModelTest(TestCase):
+class AuthorModelTest(TestCase):
     def setUp(self):
-        author = TweetAuthor.objects.create(name='Sam')
-        Tweet.objects.create(tweet_author=author, tweet='Hello world.')
+        TweetAuthor.objects.create(name='Sam')
     
     def test_tweet_author(self):
         author = TweetAuthor.objects.get(id=1)
         expected_author = f'{author.name}'
         self.assertEqual(expected_author, 'Sam')
+
+
+class TweetModelTest(TestCase):
+    def setUp(self):
+        author = TweetAuthor.objects.create(name='Sam')
+        Tweet.objects.create(tweet_author=author, tweet='Hello world.')
 
     def test_tweet_content(self):
         tweet = Tweet.objects.get(id=1)
