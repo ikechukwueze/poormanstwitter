@@ -23,7 +23,7 @@ def get_or_post_tweets(request):
 
         all_tweets = Tweet.objects.all().order_by(sort_order_dict[sort_order])
         serializer = TweetSerializer(all_tweets, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     if request.method == 'POST':
         serializer = TweetSerializer(data=request.data)

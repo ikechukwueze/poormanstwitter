@@ -4,7 +4,6 @@ from .models import TweetAuthor, Tweet
 
 
 class TweetAdmin(admin.ModelAdmin):
-    #fields = ('tweet_author', 'tweet')
     readonly_fields = ('formatted_date_time',)
 
 
